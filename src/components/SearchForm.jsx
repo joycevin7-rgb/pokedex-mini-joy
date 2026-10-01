@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function SearchForm() {
+function SearchForm({ selectedType, onTypeChange }) {
   const [query, setQuery] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -30,6 +30,31 @@ function SearchForm() {
           placeholder="Search a Pokémon by name…"
           className="search-input"
         />
+        <select 
+          value={selectedType} 
+          onChange={(e) => onTypeChange(e.target.value)}
+          className="type-filter-select"
+        >
+          <option value="all">All Types</option>
+          <option value="normal">Normal</option>
+          <option value="fire">Fire</option>
+          <option value="water">Water</option>
+          <option value="electric">Electric</option>
+          <option value="grass">Grass</option>
+          <option value="ice">Ice</option>
+          <option value="fighting">Fighting</option>
+          <option value="poison">Poison</option>
+          <option value="ground">Ground</option>
+          <option value="flying">Flying</option>
+          <option value="psychic">Psychic</option>
+          <option value="bug">Bug</option>
+          <option value="rock">Rock</option>
+          <option value="ghost">Ghost</option>
+          <option value="dragon">Dragon</option>
+          <option value="dark">Dark</option>
+          <option value="steel">Steel</option>
+          <option value="fairy">Fairy</option>
+        </select>
         <button type="submit" className="search-button">
           Search
         </button>
